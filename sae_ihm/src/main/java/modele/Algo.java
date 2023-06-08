@@ -3,8 +3,6 @@ package modele;
 import java.util.Arrays;
 
 public class Algo {
-    private EnsembleQuetes chEnsembleQuetes;
-    private Chemin chChemin;
 
 
     public static void algoGloutonEx(EnsembleQuetes parEnsembleQuetes) {

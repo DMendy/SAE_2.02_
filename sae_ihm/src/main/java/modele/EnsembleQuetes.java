@@ -7,7 +7,7 @@ public class EnsembleQuetes {
     private int nbdeQuete;
     private final String chIntitule;
     /**
-     * construit un objet de la classe Parcours
+     * construit un objet de la classe Chemin
      * @param parIntitule (String): represente le nom du scénario
      */
     public EnsembleQuetes(String parIntitule){
@@ -17,7 +17,7 @@ public class EnsembleQuetes {
 
     }
     /**
-     * ajoute une quete au scenario
+     * ajoute une quete à l'ensemble
      * @param chQuete: Une quete qui doit etre dans ce scenario
      */
     public void ajout(Quete chQuete){
@@ -26,14 +26,14 @@ public class EnsembleQuetes {
     }
     /**
      * retoune tous les quetes triées avec les id dans l'ordre croissant
-     * @return treeQuete (TreeSet<Quete>): represente les quetes triées dans l'ordre par leur id
+     * @return treeEnsembleQuetes (TreeSet<Quete>): represente les quetes par numero
      */
     public TreeSet<Quete> getTreeEnsembleQuetes() {
         return treeEnsembleQuetes;
     }
     /**
      * retourne le nombre de quêtes du scénario.
-     * @return nbQuete (int): représente le nombre de quêtes dans le scénario
+     * @return getNbdeQuete (int): représente le nombre de quêtes dans le scénario
      */
     public int getNbdeQuete() {
         return nbdeQuete;

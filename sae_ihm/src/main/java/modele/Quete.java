@@ -10,8 +10,8 @@ public class Quete implements Comparable <Quete> {
     private int experience;
     private String intitule;
     /**
-     * transforme la representation de la quete en forme de ligne en création d'une instance de la classe quete
-     * @param ligne (String): representation de la quete en forme de ligne
+     * transforme la quete d'une String à un objet de la classe Quete
+     * @param ligne (String): quete sur une ligne du fichier
      */
     public Quete(String ligne){
         Scanner scanner = new Scanner(ligne).useDelimiter("\\|");
@@ -27,9 +27,9 @@ public class Quete implements Comparable <Quete> {
         }
     }
     /**
-     * transforme la representation de la position de la quete en forme de ligne à un tableau de 2 de longueurs
-     * @param scanner (String): la representation de la position de la quete en forme de ligne
-     * @return un tableau à 2 indice. O indice est x et 1er indice est y
+     * transforme la position de la quete en tableau à 2 valeurs
+     * @param scanner (String): position de la quete dans la ligne
+     * @return tableau de longueur 2
      */
     public int [] extraitPos(String scanner){
         String precond = scanner;
@@ -48,9 +48,9 @@ public class Quete implements Comparable <Quete> {
         return preconditions;
     }
     /**
-     * transforme la representation des préconditions de la quete en forme de ligne à un tableau de 4 de longueurs
-     * @param scanner (String) est la representation des préconditions de la quete en forme de ligne
-     * @return un tableau à 4 indices qui possede les préconditions avant de faire la quête (d'autres quêtes)
+     * transforme la precondtion de la quete en tableau à 4 valeurs
+     * @param scanner (String): preconditions de la quete dans la ligne
+     * @return tableau de longueur 4
      */
     public int [] extraitPrecond(String scanner){
         String precond = scanner;
@@ -69,68 +69,21 @@ public class Quete implements Comparable <Quete> {
         return preconditions;
     }
     /**
-     * permet savoir si la quete posséde aucune préconditions
-     * @return false: si la quête posséde des préconditions
-     *         true: si la quete possede aucunes préconditions
-     */
-    public boolean testprecondition(){
-        for(int e:precond){
-            if (e!=0)
-                return false;
-        }
-        return true;
-    }
-    /**
-     * retourne la distance entre la quete actuelle this et une autre quete
-     * @param parQuete :  represente La quete suivante
-     * @return int>=0
-     */
-    public int distanceQuete(Quete parQuete){
-
-        return Math.abs(this.pos[0] - parQuete.pos[0]) + Math.abs(this.pos[1] - parQuete.pos[1]) ;
-    }
-    /**
-     * determine et renvoie les quetes réalisables et les plus proches de this
-     * @param ensQuete : represente l'ensemble des quetes réalisables
-     * @return ensQProche qui est un ensemble des quetes les plus proches de this
-     */
-    public HashSet<Quete> queteProche(HashSet<Quete> ensQuete){
-        HashSet<Quete> ensQProche  = new HashSet<>();
-        int min = 0;
-        for(Quete q:ensQuete){
-            min = this.distanceQuete(q);
-            break;
-        }
-        for(Quete quete: ensQuete ){
-            if (min > this.distanceQuete(quete)){
-                ensQProche.clear();
-                ensQProche.add(quete);
-                min = this.distanceQuete(quete);
-            }
-            else if (min == this.distanceQuete(quete)) {
-                ensQProche.add(quete);
-            }
-        }
-        return ensQProche;
-    }
-    /**
      * permet de voir si la quete peut etre faite en regardant ses préconditions et les quetes faites
      * @param listQueteFaite: dico des quetes faite avec comme clé leur id
-     * @return true si la quete peut etre faite ou false si la quete ne peut etre faite
+     * @return true si la quete peut etre faite ou false si la quete ne peut pas etre faite
      */
     public boolean quetePossible(LinkedHashMap<Integer,Quete> listQueteFaite){
         Set<Integer> listIDFaite = listQueteFaite.keySet();
         return (((this.precond[0] == 0 || (listIDFaite.contains(this.precond[0]))) ||listIDFaite.contains(this.precond[1]))) && (((this.precond[2] == 0 || (listIDFaite.contains(this.precond[2]))) ||listIDFaite.contains(this.precond[3])));
     }
     /**
-     * compare les id entre les deux quetes
-     * @param parquete : une autre quete
-     * @return <0: si l'id de this est inférieur a l'id de parquete
-     *         =0: si l'id de this est égale a l'id de parquete
-     *         >0: si l'id de this est supérieure a l'id de parquete
+     * compare les numeros deux quetes
+     * @param parquete : une quete
+     * @return la difference entre une quete et la quete en parametre
      */
     public int compareTo(Quete parquete){
-        return this.numero - parquete.numero;
+        return numero - parquete.numero;
     }
     /**
      * retoune la position de la quete sur la carte

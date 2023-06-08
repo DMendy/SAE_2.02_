@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class LectureFichierTexte {
     /**
-     * lis un fichier EnsembleQuetes. Crée le scénario avec ses quetes
+     * lis un fichier crée l'EnsembleQuetes avec ses quetes
      *
      * @param fichier (File): le fichier du scénario
      * @return  L'objet EnsembleQuetes : si le fichier existe
