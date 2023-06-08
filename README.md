@@ -27,7 +27,7 @@ Objectif principal :
 
 <h3> Specification: </h3>
 
-- Type de methode: Nous utiliserons la methode Agile
+- Type de methode: Nous utiliserons la methode cascade
 
 
 
