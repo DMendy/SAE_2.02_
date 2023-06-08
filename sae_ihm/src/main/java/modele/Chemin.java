@@ -79,8 +79,8 @@ public class Chemin {
     @Override
     public String toString(){
         String str ="";
-        for (Integer key : chQuetesFaite.keySet()){
-            str = str + key + " ";
+        for (Integer i : chQuetesFaite.keySet()){
+            str = str + i + " ";
         }
         return str;
     }

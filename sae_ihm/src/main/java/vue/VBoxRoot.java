@@ -21,8 +21,6 @@ public class VBoxRoot extends VBox {
     public VBoxRoot() {
         String [] listeScenario = new String[11];
         VBox BoiteScenario = new VBox();
-        ScrollPane scrollPaneScenario = new ScrollPane();
-        scrollPaneScenario.setContent(BoiteScenario);
         for (Integer i = 0; i < 11; i++) {
             String scenarionum=new String("scenario_" + i.toString());
             listeScenario[i]=scenarionum;
@@ -49,6 +47,7 @@ public class VBoxRoot extends VBox {
             public void handle(ActionEvent actionEvent) {
                 File f = new File("scenarios" + File.separator + comboBoxScenario.getSelectionModel().getSelectedItem().toString()+".txt");
                 EnsembleQuetes scenario = LectureFichierTexte.lecture(f);
+
                 System.out.println("\n");
                 System.out.println(comboBoxScenario.getSelectionModel().getSelectedItem().toString());
                 System.out.println("Solution Efficace");
@@ -58,11 +57,7 @@ public class VBoxRoot extends VBox {
         getChildren().addAll(comboBoxScenario,HBoxbutton);
 
 
-
-
     }
-
-
 
     private ComboBox<String> peubleComboBox(String [] strings) {
         ComboBox<String> comboBox = new ComboBox();

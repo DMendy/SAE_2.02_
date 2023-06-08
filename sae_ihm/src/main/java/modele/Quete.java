@@ -124,7 +124,7 @@ public class Quete implements Comparable <Quete> {
      */
     @Override
     public String toString() {
-        return numero+"-"+ Arrays.toString(pos) +"-"+ Arrays.toString(precond) +"-"+duree+"-"+experience+"-"+intitule;
+        return "\n"+"quete"+" "+numero+"\n"+ "Se deplace en "+Arrays.toString(pos) +"\n"+"Obtient "+experience+"xp"+"\n"+intitule;
     }
     /**
      * retourne l'expérience donnée de la quete
